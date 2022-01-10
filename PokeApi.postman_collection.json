@@ -20,12 +20,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/pokemonList",
-					"protocol": "http",
+					"raw": "https://pokedex-api-2022.herokuapp.com/pokemonList",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"pokedex-api-2022",
+						"herokuapp",
+						"com"
 					],
-					"port": "5000",
 					"path": [
 						"pokemonList"
 					]
@@ -48,12 +49,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/pokemonById",
-					"protocol": "http",
+					"raw": "https://pokedex-api-2022.herokuapp.com/pokemonById",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"pokedex-api-2022",
+						"herokuapp",
+						"com"
 					],
-					"port": "5000",
 					"path": [
 						"pokemonById"
 					]
@@ -76,12 +78,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:5000/evolutionById",
-					"protocol": "http",
+					"raw": "https://pokedex-api-2022.herokuapp.com/evolutionById",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"pokedex-api-2022",
+						"herokuapp",
+						"com"
 					],
-					"port": "5000",
 					"path": [
 						"evolutionById"
 					]
