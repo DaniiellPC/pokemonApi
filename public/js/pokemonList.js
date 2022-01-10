@@ -106,7 +106,7 @@ async function createPokemon(pokemon) {
         habilidades.textContent = `Habilidad: ${pokemon.habilidades[0]}`
     } else {
         let habilidad3
-        !pokemon.habilidades[2] ? habilidad3 = '' : pokemon.habilidades[2]
+        !pokemon.habilidades[2] ? habilidad3 = '' : habilidad3 = pokemon.habilidades[2]
         habilidades = document.createElement('li')
         habilidades.classList.add('list-group-item')
         habilidades.textContent = `Habilidades: ${pokemon.habilidades[0]} / ${pokemon.habilidades[1]} / ${habilidad3}`
