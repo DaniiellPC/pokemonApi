@@ -67,7 +67,6 @@ const pokemonEncontrado = async (limit, offset) => {
 }
 
 const pokemonId = async (id) => {
-    let responseEvolution
     let responsePokemon
     let pokemon = []
     let habilidades = []
@@ -77,6 +76,36 @@ const pokemonId = async (id) => {
     } catch (error) {
         console.log(error)
     }
+
+    let newHabilidades = []
+    let newTipos = []
+    habilidades = responsePokemon.abilities
+    tipos = responsePokemon.types
+    for (const habilidad of habilidades) {
+        newHabilidades.push(habilidad.ability.name)
+    }
+    for (const tipo of tipos) {
+        newTipos.push(tipo.type.name)
+    }
+    pokemon = [...pokemon, {
+        habilidades: [...newHabilidades],
+        nombre: responsePokemon.name,
+        peso: responsePokemon.weight,
+        sprite: responsePokemon.sprites.front_default,
+        tipo: [...newTipos]
+    }]
+
+    console.log(pokemon)
+    return pokemon
+}
+
+const evolutionId = async (id) => {
+    let responseEvolution
+    let responsePokemon
+    let pokemon = []
+    let habilidades = []
+    let tipos = []
+
 
     try {
         responseEvolution = await getEvolution(id)
@@ -91,6 +120,14 @@ const pokemonId = async (id) => {
         evoluciones.push(value.evolves_to[0].species.name)
     }
     console.log(evoluciones)
+
+    const nombre = responseEvolution.chain.species.name
+
+    try {
+        responsePokemon = await getPokemon(nombre)
+    } catch (error) {
+        console.log(error)
+    }
 
     let newHabilidades = []
     let newTipos = []
@@ -117,3 +154,4 @@ const pokemonId = async (id) => {
 
 module.exports.pokemonEncontrado = pokemonEncontrado
 module.exports.pokemonId = pokemonId
+module.exports.evolutionId = evolutionId

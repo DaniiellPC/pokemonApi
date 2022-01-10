@@ -24,9 +24,22 @@ siguiente.addEventListener('click', () => {
 async function getData(offset, limite) {
     const location = window.location.hostname
     const port = window.location.port
+    let data
 
-    const myHeaders = new Headers()
-    myHeaders.append("Content-Type", "application/json")
+    const myHeaders = {
+        "Content-Type": "application/json"
+    }
+
+    // const dataAlmacenada = localStorage.getItem('dataAlmacenada')
+
+    // if (dataAlmacenada) {
+    //     data = dataAlmacenada
+    //     data.forEach(element => {
+    //         createPokemon(element)
+    //     })
+    //     spinner.style.display = 'none'
+    //     return data
+    // } 
 
     const raw = JSON.stringify({
         limite,
@@ -39,9 +52,9 @@ async function getData(offset, limite) {
         body: raw,
         redirect: 'follow'
     }
-    let data
+
     try {
-        const fetchResponse = await fetch(`http://${location}:${port}/pokemon`, settings)
+        const fetchResponse = await fetch(`http://${location}:${port}/pokemonList`, settings)
         data = await fetchResponse.json()
     } catch (e) {
         return e
@@ -52,6 +65,7 @@ async function getData(offset, limite) {
     })
     spinner.style.display = 'none'
     console.log(data)
+    localStorage.setItem('dataAlmacenada', JSON.stringify(data))
     return data
 }
 
@@ -117,16 +131,10 @@ async function createPokemon(pokemon) {
     lista.appendChild(tipo)
     lista.appendChild(peso)
 
-    // const boton = document.createElement('a')
-    // boton.setAttribute('id', 'boton')
-    // boton.href = '#'
-    // boton.classList.add('btn', 'btn-primary')
-    // boton.textContent = 'Go Somewhere'
 
     cardBody.appendChild(imagen)
     cardBody.appendChild(nombre)
     cardBody.appendChild(lista)
-    // cardBody.appendChild(boton)
 
     row.appendChild(columna)
 
@@ -142,17 +150,11 @@ function getName(parent) {
 }
 
 function eliminarNodos(parent) {
+    spinner.style.display = 'block'
     while(parent.firstChild) {
         parent.removeChild(parent.firstChild)
     }
 }
 
-function test() {
-    const pokemonName = document.querySelector('#pokemonName')
-    console.log(pokemonName)
-}
 
 getData(offset, limit)
-
-// const pokemonNumber = document.querySelector('#pokemonNumber')
-// console.log(pokemonNumber)
