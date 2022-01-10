@@ -54,7 +54,7 @@ async function getData(offset, limite) {
     }
 
     try {
-        const fetchResponse = await fetch(`http://${location}:${port}/pokemonList`, settings)
+        const fetchResponse = await fetch(`https://${location}/pokemonList`, settings)
         data = await fetchResponse.json()
     } catch (e) {
         return e
