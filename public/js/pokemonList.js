@@ -9,14 +9,14 @@ let offset = 1
 
 atras.addEventListener('click', () => {
     if (offset !== 1) {
-        offset -= 9
+        offset -= 11
         eliminarNodos(row)
         getData(offset, limit)
     }
 })
 
 siguiente.addEventListener('click', () => {
-    offset += 9
+    offset += 11
     eliminarNodos(row)
     getData(offset, limit)
 })
