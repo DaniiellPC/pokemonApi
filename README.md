@@ -39,3 +39,7 @@ adicionalmente trae informacion extra del pokemon
 
 Estas peticiones puede probarse importando la coleccion  
 de JSON para postman que se encuentra en la raiz del proyecto
+
+## Nota:
+La API fuente original no provee una descripción del pokemon, por ende,  
+acá no podrá obtenerse tampoco.
