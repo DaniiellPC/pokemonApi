@@ -11,31 +11,31 @@ npm run start
 Peticiones Disponibles:
 
 ### POST:
-/pokemonList
-ejemplo de body: 
-{
-    "limite": 11,
-    "offset": 1
-}
+/pokemonList  
+ejemplo de body:  
+{  
+    "limite": 11,  
+    "offset": 1  
+}  
 Donde Limite es la cantidad máxima de pokemon a traer la informacion  
 y offset es el valor inicial desde donde debe empezar a traer la data
 
 ### POST:
-/pokemonById
-ejemplo de body: 
-{
-    "id": 1
-}
+/pokemonById  
+ejemplo de body:  
+{  
+    "id": 1  
+}  
 Donde el id es el identificador del pokemon a traer sus datos
 
 ### POST:
-/evolutionById
-ejemplo de body: 
-{
-    "id": 1
-}
+/evolutionById  
+ejemplo de body:  
+{  
+    "id": 1  
+}  
 Donde el id es el identificador de la evolucion del pokemon  
-adicionalmente trae informacion extra del pokemon
+adicionalmente trae informacion extra del pokemon  
 
-Estas peticiones puede probarse importando la coleccion --
+Estas peticiones puede probarse importando la coleccion  
 de JSON para postman que se encuentra en la raiz del proyecto
